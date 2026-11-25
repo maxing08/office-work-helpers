@@ -1,4 +1,4 @@
-# 日常表格小帮手
+# 日常表格小帮手 / Daily Office Helpers
 
 三个可以实际操作的网页演示：按明细批量填付款单、明细自动汇总、按名称和规格核对库存。
 
@@ -82,3 +82,58 @@ node --test test/core.test.cjs
 ## 定制时先确认
 
 提供 3 行脱敏输入、期望输出或空白样式、使用的软件和截止时间，再约定交付范围、总价、修改次数与验收规则。
+
+---
+
+## English
+
+Three working, browser-based demos for repetitive office tasks: batch payment vouchers, detail summaries, and inventory checks by product name and specification.
+
+Choose a tool and click **试用模拟样例** (Try simulated sample). All examples use simulated data. These are runnable demonstrations, not paid client case studies. Developed with AI assistance. The current interface is in Chinese.
+
+### What the tools do
+
+| Tool | Work problem | Sample result |
+| --- | --- | --- |
+| [Batch payment vouchers](vouchers.html) | Each detail row needs its own payment voucher | Three vouchers, total 400.00 |
+| [Detail summary](summary.html) | New detail rows mean rebuilding the summary | Four rows grouped by store, product and specification; three groups, total 553.00 |
+| [Inventory check](stock.html) | Different specifications of the same product get mixed together | Black M: 12 units; black L: 6 units; A5 notebooks: 16 books |
+
+**Payment vouchers:** Generate one voucher per input row, review the count, amounts and content, then enable browser printing or Save as PDF. Duplicate voucher IDs, missing required fields, invalid dates and non-positive amounts stop processing. The layout is a generic demo; an existing company template, signature fields and column mapping can be customized.
+
+**Detail summary:** Select grouping columns and an amount column. Editing or adding input rows refreshes the totals while preserving the selected grouping. Invalid data clears outdated results and disables export.
+
+**Inventory check:** Keep product name, specification and unit separate. Calculate opening balance + receipts − issues. Duplicate transaction IDs and repeated opening balances for the same group stop processing. Negative balances are flagged for review against the original records.
+
+### Try it locally
+
+1. Download the entire repository as a ZIP, extract it, and open `index.html`.
+2. Select a tool and load its simulated sample.
+3. Try a sanitized UTF-8 CSV file or paste CSV text.
+4. Compare the result with your expected output before requesting changes.
+
+No account, installation or paid API is needed for the web tools. Files are processed in the current browser; this project does not upload them to a server. Reloading clears the input. Save exported results yourself.
+
+For an optional local HTTP preview with Node.js installed, run `node server.cjs` and open the local address printed in the terminal. Node.js is not required to open the tools directly.
+
+### Input and scope
+
+- The first version reads **UTF-8 CSV**. Excel and WPS can export this format. Direct native `.xlsx` input is not implemented.
+- Limits: 2MB and 5,000 rows per file; up to 200 payment vouchers per batch.
+- Use `YYYY-MM-DD` dates and monetary amounts with at most two decimal places. Normalize currencies before totaling. Amounts are calculated in integer minor units to avoid floating-point addition errors.
+- Inventory quantities must be non-negative integers. Transaction types use the Chinese labels 期初 (opening), 入库 (receipt) and 出库 (issue).
+- This is not an accounting, inventory costing or payment execution system.
+- IDs are preserved as text inside the tools. When reimporting CSV into Excel, set identifier columns to text to retain leading zeros.
+- CSV export escapes text that might otherwise be interpreted as a spreadsheet formula.
+
+The [sample folder](samples/) contains voucher, summary, inventory and negative-balance examples. Screenshots above show the Chinese interface with simulated data.
+
+### Validation
+
+Run `node --test test/core.test.cjs`. The current 16 passing tests cover CSV quoting and structure, exact monetary totals, duplicate IDs, required fields, dates, multi-column summaries, product specifications and units, negative inventory, and CSV formula-text escaping.
+
+Browser checks confirmed voucher counts and totals, the review checkbox, summary refresh after adding rows, disabled export on invalid data, and negative inventory warnings. CSV generation is tested; automatic browser download capture did not complete. Full printed output and narrow mobile layouts have not yet been fully verified.
+
+### Customization
+
+Provide three sanitized input rows, the expected output or blank template, the software you use, and a deadline. Agree on deliverables, a fixed total price, included revisions and acceptance criteria before custom development. Templates, column mappings, grouping rules and workflow-specific behavior can be adapted from these demos.
