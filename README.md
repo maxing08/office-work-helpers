@@ -1,5 +1,7 @@
 # 日常表格小帮手 / Daily Office Helpers
 
+**在线试用 / Live demo:** [打开三个工具 / Open the tools](https://maxing08.github.io/office-work-helpers/)
+
 三个可以实际操作的网页演示：按明细批量填付款单、明细自动汇总、按名称和规格核对库存。
 
 打开工具后，点击 **试用模拟样例** 就能看到结果。示例数据均为模拟，适合先评估功能，再按自己的单据样式、表头和工作规则做定制。AI 辅助开发。
@@ -10,9 +12,9 @@
 
 | 工具 | 解决的工作场景 | 样例结果 |
 | --- | --- | --- |
-| [批量填付款单](vouchers.html) | 每条明细都要单独填一张付款单 | 3 张付款单，合计 400.00 |
-| [明细自动汇总](summary.html) | 加了新明细，原来的汇总又要重做 | 4 条明细按门店、品名、规格形成 3 组，合计 553.00 |
-| [进出库存核对](stock.html) | 同名产品有不同规格，库存混在一起 | 黑色 M 为 12 件，黑色 L 为 6 件，A5 笔记本为 16 本 |
+| [批量填付款单](https://maxing08.github.io/office-work-helpers/vouchers.html) | 每条明细都要单独填一张付款单 | 3 张付款单，合计 400.00 |
+| [明细自动汇总](https://maxing08.github.io/office-work-helpers/summary.html) | 加了新明细，原来的汇总又要重做 | 4 条明细按门店、品名、规格形成 3 组，合计 553.00 |
+| [进出库存核对](https://maxing08.github.io/office-work-helpers/stock.html) | 同名产品有不同规格，库存混在一起 | 黑色 M 为 12 件，黑色 L 为 6 件，A5 笔记本为 16 本 |
 
 ### 批量填付款单
 
@@ -95,9 +97,9 @@ Choose a tool and click **试用模拟样例** (Try simulated sample). All examp
 
 | Tool | Work problem | Sample result |
 | --- | --- | --- |
-| [Batch payment vouchers](vouchers.html) | Each detail row needs its own payment voucher | Three vouchers, total 400.00 |
-| [Detail summary](summary.html) | New detail rows mean rebuilding the summary | Four rows grouped by store, product and specification; three groups, total 553.00 |
-| [Inventory check](stock.html) | Different specifications of the same product get mixed together | Black M: 12 units; black L: 6 units; A5 notebooks: 16 books |
+| [Batch payment vouchers](https://maxing08.github.io/office-work-helpers/vouchers.html) | Each detail row needs its own payment voucher | Three vouchers, total 400.00 |
+| [Detail summary](https://maxing08.github.io/office-work-helpers/summary.html) | New detail rows mean rebuilding the summary | Four rows grouped by store, product and specification; three groups, total 553.00 |
+| [Inventory check](https://maxing08.github.io/office-work-helpers/stock.html) | Different specifications of the same product get mixed together | Black M: 12 units; black L: 6 units; A5 notebooks: 16 books |
 
 **Payment vouchers:** Generate one voucher per input row, review the count, amounts and content, then enable browser printing or Save as PDF. Duplicate voucher IDs, missing required fields, invalid dates and non-positive amounts stop processing. The layout is a generic demo; an existing company template, signature fields and column mapping can be customized.
 
