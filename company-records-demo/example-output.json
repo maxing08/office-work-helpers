@@ -1,0 +1,17 @@
+{
+  "mode": "extractive_evidence_demo",
+  "simulated_data": true,
+  "question": "When does ISO 9001 expire?",
+  "status": "evidence_found",
+  "generated_answer": false,
+  "evidence": [
+    {
+      "file": "certifications.md",
+      "line_start": 5,
+      "line_end": 8,
+      "sha256": "0bddaf7a8058558d56bfde6bd66f71f205963657a48a7a8cf51969420c68a725",
+      "quote": "## ISO9001 certificate\nThe ISO9001 certificate expires on 2027-06-30.\nCertificate identifier: QMS-DEMO-2024.\nThe date and certificate are invented sample data."
+    }
+  ],
+  "note": "Matched passages are evidence for review, not a generated answer or an eligibility decision."
+}
